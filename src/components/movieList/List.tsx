@@ -1,11 +1,13 @@
 interface Props {
     content: string
+    onRemove: () => void
 }
 
-const List = ({ content }: Props) => {
+const List = ({ content, onRemove }: Props) => {
     return (
         <div className="input-group mb-3 w-60">
             <input
+                readOnly
                 name="movie name"
                 type="text"
                 className="form-control"
@@ -13,6 +15,7 @@ const List = ({ content }: Props) => {
                 value={content}
             />
             <button
+                onClick={onRemove}
                 className="btn btn-outline-secondary"
                 type="button"
                 id="button-addon2">
