@@ -3,7 +3,7 @@ import "./input.css"
 interface Props {
     onClick: () => void
     value: string
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChange:  (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input = ({onClick, value, onChange}: Props) => {

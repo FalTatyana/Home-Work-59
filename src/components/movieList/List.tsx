@@ -1,13 +1,17 @@
+import React from "react"
+
 interface Props {
     content: string
-    onRemove: () => void
+    onRemove: (id: number) => void
+    onChange: (id: number, value: string) => void
+    id: number
 }
 
-const List = ({ content, onRemove }: Props) => {
+const List = ({ content, onRemove, onChange, id }: Props) => {
     return (
         <div className="input-group mb-3 w-60">
             <input
-                readOnly
+                onChange={(e) => onChange(id, e.target.value)}
                 name="movie name"
                 type="text"
                 className="form-control"
@@ -15,7 +19,7 @@ const List = ({ content, onRemove }: Props) => {
                 value={content}
             />
             <button
-                onClick={onRemove}
+                onClick={() => onRemove(id)}
                 className="btn btn-outline-secondary"
                 type="button"
                 id="button-addon2">
@@ -25,4 +29,4 @@ const List = ({ content, onRemove }: Props) => {
     )
 }
 
-export default List
+export default React.memo(List)
